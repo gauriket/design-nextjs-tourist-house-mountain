@@ -11,6 +11,32 @@ import {
 import { GrFacebookOption, GrInstagram } from "react-icons/gr";
 import { links } from "../utils/utils";
 
+
+const Example = () => {
+  // set a variable 'responsive' to false. Update it using 'setResponsive'
+  const [responsive, setResponsive] = useState(false);
+
+  const toggleResponsive = () => {
+    //take current value of responsive and flip it
+    setResponsive(prev => !prev);
+  }
+
+  return (
+    <nav>
+      <div className={responsive ? 'topnav responsive' : 'topnav'}>
+        <a href='/'>Home</a>
+	<a href='/'>About</a>
+	<a href='/'>Services</a>
+	<a href='/'>Contact</a>
+        ...
+        <a className='icon' onClick={toggleResponsive}>
+          <i className="fa fa-bars"></i>
+        </a>
+      </div>
+    </nav>
+  );
+}
+
 const Nav = () => {
 	return (
 		<Flex
@@ -20,6 +46,7 @@ const Nav = () => {
 			padding={{ base: "30px", md: "30px 70px" }}
 			justifyContent='space-between'
 		>
+				<Example/>
 			<Box>
 				<Heading as='h2' size='md' color='#fff'>
 					HOUSE
